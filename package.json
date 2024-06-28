@@ -1,0 +1,38 @@
+{
+  "name": "keymatcher",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "electron:dev": "cross-env NODE_ENV=development concurrently \"vite\" \"electron .\"",
+    "electron:build": "vite build && cross-env NODE_ENV=production electron-builder"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.winnerxsinclair.keymatcher",
+    "files": [
+      "dist/**/*",
+      "electron/main.cjs",
+      "electron/preload.cjs"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "dependencies": {
+    "electron-vite": "^2.2.0",
+    "fs-extra": "^11.2.0",
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.3.1"
+  }
+}
